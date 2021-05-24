@@ -19,6 +19,7 @@ func main() {
 	pinger.Run() // blocks until finished
 
 	stats := pinger.Statistics() // get send/receive/rtt stats
-	fmt.Printf("round-trip min/avg/max/stddev = %v/%v/%v/%v\n",
-		stats.MinRtt, stats.AvgRtt, stats.MaxRtt, stats.StdDevRtt)
+	fmt.Printf("round-trip min/avg/max/stddev/dupl_recv = %v/%v/%v/%v/%v bytes\n",
+		stats.MinRtt, stats.AvgRtt, stats.MaxRtt, stats.StdDevRtt, stats.PacketsRecv * 24)
+
 }
